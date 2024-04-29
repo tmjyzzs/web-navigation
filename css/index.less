@@ -1,0 +1,33 @@
+@import 'mixins/clear.less';
+// 最外层的包裹元素
+#wrap{
+    //头部
+    #header{
+        .headTop{
+            background: #eaeaea;
+            height: 30px;
+            .hradTopMain{
+                width: 1200px;
+                margin: 0 auto;
+                background: #4b2222;
+                line-height: 30px;
+                .clearfix();
+                .left{
+                    h5{
+                        float: left;
+                        margin-right: 5px;
+                    }
+                    p{
+                        float: left;
+                        a{
+                            &:first-child{
+                                border-right: 1px dashed #b3aeae;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+       
+    }
+}

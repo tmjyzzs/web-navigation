@@ -1,0 +1,25 @@
+#wrap #header .headTop {
+  background: #eaeaea;
+  height: 30px;
+}
+#wrap #header .headTop .hradTopMain {
+  width: 1200px;
+  margin: 0 auto;
+  background: #4b2222;
+  line-height: 30px;
+}
+#wrap #header .headTop .hradTopMain::after {
+  clear: both;
+  display: block;
+  content: '';
+}
+#wrap #header .headTop .hradTopMain .left h5 {
+  float: left;
+  margin-right: 5px;
+}
+#wrap #header .headTop .hradTopMain .left p {
+  float: left;
+}
+#wrap #header .headTop .hradTopMain .left p a:first-child {
+  border-right: 1px dashed #b3aeae;
+}
