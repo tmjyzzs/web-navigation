@@ -23,3 +23,27 @@
 #wrap #header .headTop .hradTopMain .left p a:first-child {
   border-right: 1px dashed #b3aeae;
 }
+#wrap #header .headTop .hradTopMain .right {
+  float: right;
+}
+#wrap #header .headTop .hradTopMain .right nav {
+  font-size: 0px;
+}
+#wrap #header .headTop .hradTopMain .right nav a {
+  margin-right: 10px;
+  padding-right: 10px;
+  font-size: 12px;
+  border-right: 1px solid #b3aeae;
+}
+#wrap #header .headTop .hradTopMain .right nav a:last-child {
+  border: none;
+  margin-right: 0px;
+  padding: 0px;
+}
+#wrap .headBottom .headBottomMain {
+  width: 1200px;
+  margin: 0 auto;
+}
+#wrap .headBottom .headBottomMain .logo {
+  float: left;
+}
