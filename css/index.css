@@ -44,6 +44,69 @@
   width: 1200px;
   margin: 0 auto;
 }
+#wrap .headBottom .headBottomMain::after {
+  clear: both;
+  display: block;
+  content: '';
+}
 #wrap .headBottom .headBottomMain .logo {
   float: left;
+}
+#wrap .headBottom .headBottomMain .logo a img {
+  width: 180px;
+  height: 66px;
+  margin: 25px 45px;
+}
+#wrap .headBottom .headBottomMain .search {
+  float: right;
+  margin-top: 35px;
+}
+#wrap .headBottom .headBottomMain .search input:first-child {
+  box-sizing: border-box;
+  width: 490px;
+  height: 32px;
+  padding: 0 4px;
+  border: 3px solid #ea4a36;
+  float: left;
+}
+#wrap .headBottom .headBottomMain .search input:last-child {
+  width: 68px;
+  height: 32px;
+  padding: 4px 4px;
+  color: #fff;
+  background-color: #ea4a36;
+  border: none;
+}
+#wrap .headBottom .headBottomMain .search input::-webkit-input-placeholder {
+  color: #df3838;
+}
+#wrap #navWrap {
+  border-bottom: 2px solid #e1251b;
+}
+#wrap #navWrap .navWrapMain {
+  width: 1200px;
+  margin: 0 auto;
+}
+#wrap #navWrap .navWrapMain::after {
+  clear: both;
+  display: block;
+  content: '';
+}
+#wrap #navWrap .navWrapMain a {
+  margin: 0 22px;
+  font-size: 16px;
+  float: left;
+  color: #333;
+  line-height: 50px;
+}
+#wrap #navWrap .navWrapMain a:first-child {
+  width: 210px;
+  height: 50px;
+  background: #e1251b;
+  color: #eeeaea;
+  font-size: 14px;
+  font-weight: bold;
+  float: left;
+  text-align: center;
+  line-height: 50px;
 }
