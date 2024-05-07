@@ -110,3 +110,57 @@
   text-align: center;
   line-height: 50px;
 }
+#wrap #content .contentMain {
+  width: 1200px;
+  margin: 15px auto 0 auto;
+}
+#wrap #content .contentMain #navPath {
+  padding: 9px 15px 9px 0;
+  font-size: 0px;
+}
+#wrap #content .contentMain #navPath a {
+  font-size: 12px;
+}
+#wrap #content .contentMain #navPath span {
+  padding: 0 5px;
+  font-size: 12px;
+}
+#wrap #content .contentMain #center {
+  margin: 5px 0 15px;
+}
+#wrap #content .contentMain #center #left {
+  width: 400px;
+  float: left;
+}
+#wrap #content .contentMain #center #left #leftTop {
+  width: 400px;
+  position: relative;
+}
+#wrap #content .contentMain #center #left #leftTop #smallPic {
+  width: 400px;
+  height: 400px;
+  border: 1px solid #dfdfdf;
+  position: relative;
+}
+#wrap #content .contentMain #center #left #leftTop #smallPic .mask {
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid #ddd;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+}
+#wrap #content .contentMain #center #left #leftTop #bigPic {
+  width: 400px;
+  height: 400px;
+  border: 1px solid #ddd;
+  left: 420px;
+  top: 100px;
+  position: absolute;
+  overflow: hidden;
+}
+#wrap #content .contentMain #center #left #leftTop #bigPic img {
+  width: 800px;
+  height: 800px;
+}

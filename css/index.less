@@ -128,4 +128,76 @@
         }
     }
     // 分页导航结束
+
+    // 内容区域开始
+    #content{
+        //'版心元素
+        .contentMain{
+            width: 1200px;
+            margin: 15px auto 0 auto;
+            // 导航路径开始
+            #navPath{
+                padding: 9px 15px 9px 0;
+                font-size: 0px;
+                // background-color: #333;
+                a{
+                    font-size: 12px;
+                }
+                span{
+                    padding: 0 5px;
+                    font-size: 12px;
+                }
+            }
+            // 路径导航结束
+
+            // 中间区域开始
+            #center{
+                margin: 5px 0 15px;
+                // 左侧放大镜开始
+                #left{
+                    width: 400px;
+                    float: left;
+                    // 上边
+                    #leftTop{
+                        width: 400px;
+                        position: relative;
+                        #smallPic{
+                            width: 400px;
+                            height: 400px;
+                            border: 1px solid #dfdfdf;
+                            position: relative;
+                            
+                            img{}
+                            // 蒙版元素
+                            .mask{
+                                width: 200px;
+                                height: 200px;
+                                background: rgba(255,255,255,.5);
+                                border: 1px solid #ddd;
+                                position: absolute;
+                                left: 0px;
+                                top: 0px;
+                            }
+                        }
+                        // 大图层
+                        #bigPic{
+                            width: 400px;
+                            height: 400px;
+                            border: 1px solid #ddd;
+                            left: 420px;
+                            top: 100px;
+                            position: absolute;
+                            overflow: hidden;
+                            // 大图片
+                            img{
+                                width: 800px;
+                                height: 800px;
+                            }
+
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
