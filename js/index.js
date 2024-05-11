@@ -1,6 +1,13 @@
 //作用：需要将所有的DOM元素对象以及相关的资源全部都加载完毕之后，再来实现的事件函数
 window.onload = function () {
-    /**
+
+    //声明一个记录点击的缩略图下标
+    var bigimgIndex = 0;
+
+    //路径导航的数据渲染
+    navPathDataBind();
+    function navPathDataBind() {
+        /**
      * 思路：
      * 1、先获取路径导航的页面元素（navPath）
      * 2、再来获取所需要的数据（data.js->goodData.path）
@@ -8,33 +15,37 @@ window.onload = function () {
      * 4、在遍历数据创建DOM元素的最后一条，只创建a标签，而不创建i标签
      */
 
-    //1.获取页面导航的元素对象
-    var navPath = document.querySelector('#wrap #content .contentMain #navPath');
+        //1.获取页面导航的元素对象
+        var navPath = document.querySelector('#wrapper #content .contentMain #navPath');
 
-    //2.获取数据
-    var path = goodData.path;
+        //2.获取数据
+        var path = goodData.path;
 
-    for (let i = 0; i < path.length; i++) {
-        if (i == path.length - 1) {
-            // 创建 a 没有 href属性
-            var aNode = document.createElement("a");
-            aNode.innerHTML = path[i].title;
-            navPath.appendChild(aNode);
-        } else {
-            //4.创建a标签
-            var aNode = document.createElement("a");
-            aNode.href = path[i].url;
-            aNode.innerText = path[i].title;
-            // 5. 创建i标签
-            var iNode = document.createElement("span");
-            iNode.innerText = "/";
-            // 6. 让navPath元素来追加 a 和 i 
-            navPath.appendChild(aNode);
-            navPath.appendChild(iNode);
+        //3.遍历数据
+        for (var i = 0; i < path.length; i++) {
+            if (i == path.length - 1) {
+                //只需要创建a且没有href属性
+                var aNode = document.createElement("a");
+                aNode.innerText = path[i].title;
+                navPath.appendChild(aNode);
+            } else {
+                //4.创建a标签
+                var aNode = document.createElement("a");
+                aNode.href = path[i].url;
+                aNode.innerText = path[i].title;
+
+                //5.创建i标签
+                var iNode = document.createElement('i');
+                iNode.innerText = '/';
+
+                //6.让navPath元素来追加a和i
+                navPath.appendChild(aNode);
+                navPath.appendChild(iNode);
+            }
+
+
         }
-
     }
-    console.log("加载成功");
 
     //放大镜的移入、移出效果
     bigClassBind();
@@ -47,9 +58,13 @@ window.onload = function () {
          */
 
         //1.获取小图框元素
-        var smallPic = document.querySelector('#wrap #content .contentMain #center #left #leftTop #smallPic');
+        var smallPic = document.querySelector('#wrapper #content .contentMain #center #left #leftTop #smallPic');
         //获取leftTop元素
-        var leftTop = document.querySelector('#wrap #content .contentMain #center #left #leftTop');
+        var leftTop = document.querySelector('#wrapper #content .contentMain #center #left #leftTop');
+
+        //获取数据
+        var imagessrc = goodData.imagessrc;
+
         //2.设置移入事件
         smallPic.onmouseenter = function(){
 
@@ -63,7 +78,7 @@ window.onload = function () {
 
             //5.创建大图片元素
             var BigImg = document.createElement('img');
-            BigImg.src = "images/b1.png";
+            BigImg.src = imagessrc[bigimgIndex].b;
 
             //6.大图框来追加大图片
             BigPic.appendChild(BigImg);
@@ -134,7 +149,7 @@ window.onload = function () {
          */
 
         //1.获取piclist下的ul
-        var ul = document.querySelector('#wrap #content .contentMain #center #left #leftBottom #piclist ul');
+        var ul = document.querySelector('#wrapper #content .contentMain #center #left #leftBottom #piclist ul');
         
         //2.获取imagessrc数据
         var imagessrc = goodData.imagessrc;
@@ -148,12 +163,46 @@ window.onload = function () {
              var newImg = document.createElement('img');
              newImg.src = imagessrc[i].s;
 
-             //6.让li追加img元素
-             newLi.appendChild(newImg);
+            //  //6.让li追加img元素
+            //  newLi.appendChild(newImg);
 
-             //7.让ul追加li元素
-             ul.appendChild(newLi);
+            //  //7.让ul追加li元素
+            //  ul.appendChild(newLi);
         }
     }
-}
 
+    //点击缩略图的效果
+    thumbnailClick();
+    function thumbnailClick(){
+        /**
+         * 思路：
+         * 1、获取所有的li元素，并且循环发生点击事件
+         * 2、点击缩略图需要确定其下标位置来找到对应小图路径和大图路径替换现有src的值
+         */
+
+        //1.获取所有的li元素
+        var liNodes = document.querySelectorAll('#wrapper #content .contentMain #center #left #leftBottom #piclist ul li');
+        
+        var smallPic_img = document.querySelector('#wrapper #content .contentMain #center #left #leftTop #smallPic img');
+
+        var imagessrc = goodData.imagessrc;
+
+        //小图路径需要默认和imagessrc的第一个元素小图的路径是一致的
+        smallPic_img.src  = imagessrc[0].s;
+
+        //2.循环点击这些li元素
+        for(var i = 0;i<liNodes.length;i++){
+            //在点击事件之前，给每一个元素都添加上自定义的下标
+            liNodes[i].index = i; /** 还可以通过setAttribute('index',i) */
+            liNodes[i].onclick = function(){
+                 var idx = this.index; /** 事件函数中的this永远指向的是实际发生事件的目标源对象 */
+                 bigimgIndex = idx;
+
+                 //变换小图路径
+                 smallPic_img.src = imagessrc[idx].s;
+            }
+        }
+    }
+
+    //点击缩略图左右箭头的效果
+}
