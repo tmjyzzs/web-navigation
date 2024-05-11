@@ -15,12 +15,12 @@ window.onload = function () {
     var path = goodData.path;
 
     for (let i = 0; i < path.length; i++) {
-        if(i==path.length-1){
+        if (i == path.length - 1) {
             // 创建 a 没有 href属性
             var aNode = document.createElement("a");
             aNode.innerHTML = path[i].title;
             navPath.appendChild(aNode);
-        }else{
+        } else {
             //4.创建a标签
             var aNode = document.createElement("a");
             aNode.href = path[i].url;
@@ -32,7 +32,128 @@ window.onload = function () {
             navPath.appendChild(aNode);
             navPath.appendChild(iNode);
         }
-        
+
     }
     console.log("加载成功");
+
+    //放大镜的移入、移出效果
+    bigClassBind();
+    function bigClassBind(){
+        /**
+         * 思路：
+         * 1、获取小图框元素对象，并且设置移入事件(onmouseenter)
+         * 2、动态的创建蒙版元素以及大图框和大图片元素
+         * 3、移出时(onmouseleave)需要移除蒙版元素和大图框
+         */
+
+        //1.获取小图框元素
+        var smallPic = document.querySelector('#wrap #content .contentMain #center #left #leftTop #smallPic');
+        //获取leftTop元素
+        var leftTop = document.querySelector('#wrap #content .contentMain #center #left #leftTop');
+        //2.设置移入事件
+        smallPic.onmouseenter = function(){
+
+            //3. 创建蒙版元素
+            var maskDiv = document.createElement('div');
+            maskDiv.className = "mask";
+
+            //4.创建大图框元素
+            var BigPic = document.createElement('div');
+            BigPic.id = "bigPic";
+
+            //5.创建大图片元素
+            var BigImg = document.createElement('img');
+            BigImg.src = "images/b1.png";
+
+            //6.大图框来追加大图片
+            BigPic.appendChild(BigImg);
+
+            //7.让小图框来追加蒙版元素
+            smallPic.appendChild(maskDiv);
+
+            //8.让leftTop元素追加大图框
+            leftTop.appendChild(BigPic);
+
+
+            //设置移动事件
+            smallPic.onmousemove = function(event){
+                //event.clientX: 鼠标点距离浏览器左侧X轴的值
+                //getBoundingClientRect().left:小图框元素距离浏览器左侧可视left值
+                //offsetWidth:为元素的占位宽度
+                var left = event.clientX - smallPic.getBoundingClientRect().left - maskDiv.offsetWidth / 2;
+                var top = event.clientY - smallPic.getBoundingClientRect().top - maskDiv.offsetHeight / 2;
+
+                //判断
+                if(left < 0){
+                    left = 0;
+                }else if(left > smallPic.clientWidth - maskDiv.offsetWidth){
+                    left = smallPic.clientWidth - maskDiv.offsetWidth;
+                }
+
+                if(top < 0){
+                    top = 0;
+                }else if(top > smallPic.clientHeight - maskDiv.offsetHeight){
+                    top = smallPic.clientHeight - maskDiv.offsetHeight;
+                }
+
+                //设置left和top属性
+                maskDiv.style.left = left + "px";
+                maskDiv.style.top = top + "px";
+
+                //大图发生移动
+                //确定 bigImg 的left top
+                //移动比 = 蒙版的位置/大图的位置 = (小图的宽度-蒙版的宽度)/(大图片的宽度-大图框的宽度);
+                var scale = (smallPic.clientWidth-maskDiv.offsetWidth)/(BigImg.offsetWidth-BigPic.clientWidth)
+
+                BigImg.style.left = -left/scale + 'px';
+                BigImg.style.top = -top/scale + 'px';
+            }
+
+
+            //设置移出事件
+            smallPic.onmouseleave = function(){
+
+                //让小图框移除蒙版元素
+                smallPic.removeChild(maskDiv);
+
+                //让leftTop元素移除大图框
+                leftTop.removeChild(BigPic);
+            }
+        }
+    }
+
+    //动态渲染放大镜缩略图的数据
+    thumbnailData();
+    function thumbnailData(){
+        /**
+         * 思路：
+         * 1、先获取piclist元素下的ul
+         * 2、在获取data.js文件下的goodData->imagessrc
+         * 3、遍历数组，根据数组的长度来创建li元素
+         * 4、让ul遍历追加li元素
+         */
+
+        //1.获取piclist下的ul
+        var ul = document.querySelector('#wrap #content .contentMain #center #left #leftBottom #piclist ul');
+        
+        //2.获取imagessrc数据
+        var imagessrc = goodData.imagessrc;
+        
+        //3.遍历数组
+        for(var i = 0; i< imagessrc.length;i++){
+             //4.创建li元素
+             var newLi = document.createElement('li');
+             
+             //5.创建img元素
+             var newImg = document.createElement('img');
+             newImg.src = imagessrc[i].s;
+
+             //6.让li追加img元素
+             newLi.appendChild(newImg);
+
+             //7.让ul追加li元素
+             ul.appendChild(newLi);
+        }
+    }
 }
+
