@@ -1,42 +1,52 @@
 @import 'mixins/clear.less';
+
 // 最外层的包裹元素
-#wrapper{
+#wrapper {
+
     //头部
-    #header{
-        .headTop{
+    #header {
+        .headTop {
             background: #eaeaea;
             height: 30px;
-            .hradTopMain{
+
+            .hradTopMain {
                 width: 1200px;
                 margin: 0 auto;
                 background: #4b2222;
                 line-height: 30px;
                 .clearfix();
-                .left{
-                    h5{
+
+                .left {
+                    h5 {
                         float: left;
                         margin-right: 5px;
                     }
-                    p{
+
+                    p {
                         float: left;
-                        a{
-                            &:first-child{
+
+                        a {
+                            &:first-child {
                                 border-right: 1px dashed #b3aeae;
                             }
                         }
                     }
                 }
+
                 // 右侧
-                .right{
+                .right {
                     float: right;
-                    nav{
+
+                    nav {
                         font-size: 0px;
-                        a{
+
+                        a {
                             margin-right: 10px;
                             padding-right: 10px;
                             font-size: 12px;
-                            border-right: 1px solid #b3aeae;
-                            &:last-child{
+                            border-right: 1px solid #c22f2f;
+
+                            &:last-child {
                                 border: none;
                                 margin-right: 0px;
                                 padding: 0px;
@@ -46,33 +56,40 @@
                 }
             }
         }
-       
+
     }
+
     // 下面部分
-    .headBottom{
+    .headBottom {
+
         // 版心元素
-        .headBottomMain{
+        .headBottomMain {
             width: 1200px;
             margin: 0 auto;
             .clearfix();
+
             // logo
-            .logo{
+            .logo {
                 float: left;
-                a{
-                    img{
+
+                a {
+                    img {
                         width: 180px;
                         height: 66px;
                         margin: 25px 45px;
                     }
                 }
             }
+
             // 搜索框
-            .search{
+            .search {
                 float: right;
                 margin-top: 35px;
-                input{
+
+                input {
+
                     // 文本框
-                    &:first-child{
+                    &:first-child {
                         box-sizing: border-box;
                         width: 490px;
                         height: 32px;
@@ -81,8 +98,9 @@
                         float: left;
 
                     }
+
                     // 提交按钮
-                    &:last-child{
+                    &:last-child {
                         width: 68px;
                         height: 32px;
                         padding: 4px 4px;
@@ -90,30 +108,35 @@
                         background-color: #ea4a36;
                         border: none;
                     }
+
                     //修饰placeholder
-                    &::-webkit-input-placeholder{
-                        color:rgb(223, 56, 56);
+                    &::-webkit-input-placeholder {
+                        color: rgb(223, 56, 56);
                     }
                 }
             }
-        
+
         }
     }
+
     // 头部结束
-    #navWrap{
+    #navWrap {
         border-bottom: 2px solid #e1251b;
+
         // 版心元素
-        .navWrapMain{
+        .navWrapMain {
             width: 1200px;
             margin: 0 auto;
             .clearfix();
-            a{
+
+            a {
                 margin: 0 22px;
                 font-size: 16px;
                 float: left;
-                color:#333;
+                color: #333;
                 line-height: 50px;
-                &:first-child{
+
+                &:first-child {
                     width: 210px;
                     height: 50px;
                     background: #e1251b;
@@ -127,60 +150,71 @@
             }
         }
     }
+
     // 分页导航结束
 
     // 内容区域开始
-    #content{
+    #content {
+
         //'版心元素
-        .contentMain{
+        .contentMain {
             width: 1200px;
             margin: 15px auto 0 auto;
+
             // 导航路径开始
-            #navPath{
+            #navPath {
                 padding: 9px 15px 9px 0;
                 font-size: 0px;
+
                 // background-color: #333;
-                a{
+                a {
                     font-size: 12px;
                 }
-                span{
+
+                span {
                     padding: 0 5px;
                     font-size: 12px;
                 }
             }
+
             // 路径导航结束
 
             // 中间区域开始
-            #center{
+            #center {
                 margin: 5px 0 15px;
+
                 // 左侧放大镜开始
-                #left{
+                #left {
                     width: 400px;
                     float: left;
+
                     // 上边
-                    #leftTop{
+                    #leftTop {
                         width: 400px;
                         position: relative;
-                        #smallPic{
+
+                        #smallPic {
                             width: 400px;
                             height: 400px;
                             border: 1px solid #dfdfdf;
                             position: relative;
-                            
-                            img{}
+
+                            img {}
+
                             // 蒙版元素
-                            .mask{
+                            .mask {
                                 width: 200px;
                                 height: 200px;
-                                background: rgba(255,255,255,.5);
+                                background: rgba(255, 255, 255, .5);
                                 border: 1px solid #ddd;
                                 position: absolute;
                                 left: 0px;
                                 top: 0px;
                             }
                         }
+
                         // 大图层
-                        #bigPic{
+                        #bigPic {
                             width: 400px;
                             height: 400px;
                             border: 1px solid #ddd;
@@ -188,13 +222,74 @@
                             top: 100px;
                             position: absolute;
                             overflow: hidden;
+
                             // 大图片
-                            img{
+                            img {
                                 width: 800px;
                                 height: 800px;
                             }
 
                         }
+                    }
+
+                    // 下边
+                    // #leftBottom{
+                    // }
+                }
+
+                //右侧商品详情区域开始
+                .right {
+                    width: 700px;
+                    float: right;
+
+                    .rightTop {
+                        h3 {
+                            font-size: 14px;
+                            line-height: 21px;
+                            margin-top: 15px;
+                        }
+
+                        >p {
+                            color: #e12228;
+                            margin-top: 15px;
+                        }
+
+                        .priceWrap {
+                            margin-top: 10px;
+                            line-height: 28px;
+                            background: #fee9ec;
+                            padding: 7px;
+                            .priceTop {
+                                .clearfix();
+                                // 价格
+                                >span {
+                                    margin-right: 15px;
+                                    float: left;
+                                }
+                                // 中间
+                                .price{
+                                    float: left;
+                                    color: #cc1122;
+                                    >span{
+                                        font-size: 16px;
+                                        float: left;
+                                    }
+                                    p{
+                                        font-size: 24px;
+                                        float: left;
+                                        font-weight: bold;
+                                    }
+                                    i{
+                                        font-size: 12px;
+                                        // color: #cc1122;
+                                        float: left;
+                                    }
+                                }
+                            }
+
+
+                        }
+
                     }
                 }
             }

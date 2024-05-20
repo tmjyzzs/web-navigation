@@ -33,7 +33,7 @@
   margin-right: 10px;
   padding-right: 10px;
   font-size: 12px;
-  border-right: 1px solid #b3aeae;
+  border-right: 1px solid #c22f2f;
 }
 #wrapper #header .headTop .hradTopMain .right nav a:last-child {
   border: none;
@@ -163,4 +163,49 @@
 #wrapper #content .contentMain #center #left #leftTop #bigPic img {
   width: 800px;
   height: 800px;
+}
+#wrapper #content .contentMain #center .right {
+  width: 700px;
+  float: right;
+}
+#wrapper #content .contentMain #center .right .rightTop h3 {
+  font-size: 14px;
+  line-height: 21px;
+  margin-top: 15px;
+}
+#wrapper #content .contentMain #center .right .rightTop > p {
+  color: #e12228;
+  margin-top: 15px;
+}
+#wrapper #content .contentMain #center .right .rightTop .priceWrap {
+  margin-top: 10px;
+  line-height: 28px;
+  background: #fee9ec;
+  padding: 7px;
+}
+#wrapper #content .contentMain #center .right .rightTop .priceWrap .priceTop::after {
+  clear: both;
+  display: block;
+  content: '';
+}
+#wrapper #content .contentMain #center .right .rightTop .priceWrap .priceTop > span {
+  margin-right: 15px;
+  float: left;
+}
+#wrapper #content .contentMain #center .right .rightTop .priceWrap .priceTop .price {
+  float: left;
+  color: #cc1122;
+}
+#wrapper #content .contentMain #center .right .rightTop .priceWrap .priceTop .price > span {
+  font-size: 16px;
+  float: left;
+}
+#wrapper #content .contentMain #center .right .rightTop .priceWrap .priceTop .price p {
+  font-size: 24px;
+  float: left;
+  font-weight: bold;
+}
+#wrapper #content .contentMain #center .right .rightTop .priceWrap .priceTop .price i {
+  font-size: 12px;
+  float: left;
 }
