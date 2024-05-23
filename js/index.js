@@ -49,7 +49,7 @@ window.onload = function () {
 
     //放大镜的移入、移出效果
     bigClassBind();
-    function bigClassBind(){
+    function bigClassBind() {
         /**
          * 思路：
          * 1、获取小图框元素对象，并且设置移入事件(onmouseenter)
@@ -66,7 +66,7 @@ window.onload = function () {
         var imagessrc = goodData.imagessrc;
 
         //2.设置移入事件
-        smallPic.onmouseenter = function(){
+        smallPic.onmouseenter = function () {
 
             //3. 创建蒙版元素
             var maskDiv = document.createElement('div');
@@ -91,7 +91,7 @@ window.onload = function () {
 
 
             //设置移动事件
-            smallPic.onmousemove = function(event){
+            smallPic.onmousemove = function (event) {
                 //event.clientX: 鼠标点距离浏览器左侧X轴的值
                 //getBoundingClientRect().left:小图框元素距离浏览器左侧可视left值
                 //offsetWidth:为元素的占位宽度
@@ -99,15 +99,15 @@ window.onload = function () {
                 var top = event.clientY - smallPic.getBoundingClientRect().top - maskDiv.offsetHeight / 2;
 
                 //判断
-                if(left < 0){
+                if (left < 0) {
                     left = 0;
-                }else if(left > smallPic.clientWidth - maskDiv.offsetWidth){
+                } else if (left > smallPic.clientWidth - maskDiv.offsetWidth) {
                     left = smallPic.clientWidth - maskDiv.offsetWidth;
                 }
 
-                if(top < 0){
+                if (top < 0) {
                     top = 0;
-                }else if(top > smallPic.clientHeight - maskDiv.offsetHeight){
+                } else if (top > smallPic.clientHeight - maskDiv.offsetHeight) {
                     top = smallPic.clientHeight - maskDiv.offsetHeight;
                 }
 
@@ -118,15 +118,15 @@ window.onload = function () {
                 //大图发生移动
                 //确定 bigImg 的left top
                 //移动比 = 蒙版的位置/大图的位置 = (小图的宽度-蒙版的宽度)/(大图片的宽度-大图框的宽度);
-                var scale = (smallPic.clientWidth-maskDiv.offsetWidth)/(BigImg.offsetWidth-BigPic.clientWidth)
+                var scale = (smallPic.clientWidth - maskDiv.offsetWidth) / (BigImg.offsetWidth - BigPic.clientWidth)
 
-                BigImg.style.left = -left/scale + 'px';
-                BigImg.style.top = -top/scale + 'px';
+                BigImg.style.left = -left / scale + 'px';
+                BigImg.style.top = -top / scale + 'px';
             }
 
 
             //设置移出事件
-            smallPic.onmouseleave = function(){
+            smallPic.onmouseleave = function () {
 
                 //让小图框移除蒙版元素
                 smallPic.removeChild(maskDiv);
@@ -139,7 +139,7 @@ window.onload = function () {
 
     //动态渲染放大镜缩略图的数据
     thumbnailData();
-    function thumbnailData(){
+    function thumbnailData() {
         /**
          * 思路：
          * 1、先获取piclist元素下的ul
@@ -150,18 +150,18 @@ window.onload = function () {
 
         //1.获取piclist下的ul
         var ul = document.querySelector('#wrapper #content .contentMain #center #left #leftBottom #piclist ul');
-        
+
         //2.获取imagessrc数据
         var imagessrc = goodData.imagessrc;
-        
+
         //3.遍历数组
-        for(var i = 0; i< imagessrc.length;i++){
-             //4.创建li元素
-             var newLi = document.createElement('li');
-             
-             //5.创建img元素
-             var newImg = document.createElement('img');
-             newImg.src = imagessrc[i].s;
+        for (var i = 0; i < imagessrc.length; i++) {
+            //4.创建li元素
+            var newLi = document.createElement('li');
+
+            //5.创建img元素
+            var newImg = document.createElement('img');
+            newImg.src = imagessrc[i].s;
 
             //  //6.让li追加img元素
             //  newLi.appendChild(newImg);
@@ -173,7 +173,7 @@ window.onload = function () {
 
     //点击缩略图的效果
     thumbnailClick();
-    function thumbnailClick(){
+    function thumbnailClick() {
         /**
          * 思路：
          * 1、获取所有的li元素，并且循环发生点击事件
@@ -182,27 +182,74 @@ window.onload = function () {
 
         //1.获取所有的li元素
         var liNodes = document.querySelectorAll('#wrapper #content .contentMain #center #left #leftBottom #piclist ul li');
-        
+
         var smallPic_img = document.querySelector('#wrapper #content .contentMain #center #left #leftTop #smallPic img');
 
         var imagessrc = goodData.imagessrc;
 
         //小图路径需要默认和imagessrc的第一个元素小图的路径是一致的
-        smallPic_img.src  = imagessrc[0].s;
+        smallPic_img.src = imagessrc[0].s;
 
         //2.循环点击这些li元素
-        for(var i = 0;i<liNodes.length;i++){
+        for (var i = 0; i < liNodes.length; i++) {
             //在点击事件之前，给每一个元素都添加上自定义的下标
             liNodes[i].index = i; /** 还可以通过setAttribute('index',i) */
-            liNodes[i].onclick = function(){
-                 var idx = this.index; /** 事件函数中的this永远指向的是实际发生事件的目标源对象 */
-                 bigimgIndex = idx;
+            liNodes[i].onclick = function () {
+                var idx = this.index; /** 事件函数中的this永远指向的是实际发生事件的目标源对象 */
+                bigimgIndex = idx;
 
-                 //变换小图路径
-                 smallPic_img.src = imagessrc[idx].s;
+                //变换小图路径
+                smallPic_img.src = imagessrc[idx].s;
             }
         }
     }
 
     //点击缩略图左右箭头的效果
+
+    // 商品详细数据的动态渲染
+    rightTopData();
+    function rightTopData() {
+
+        //1、查找元素
+        var rightTop = document.querySelector('#wrapper #content .contentMain #center .right .rightTop');
+
+        //2、查找数据
+        var goodsDetail = goodData.goodsDetail;
+
+        //3、创建一个字符串(双引号、单引号、模板字符串)变量
+        //模板字符串替换数据：${变量}
+        var s = `<h3>${goodsDetail.title}</h3>
+                <p>${goodsDetail.recommend}</p>
+                <div class="priceWrap">
+                    <div class="priceTop">
+                        <span>价&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;格</span>
+                        <div class="price">
+                            <span>￥</span>
+                            <p>${goodsDetail.price}</p>
+                            <i>降价通知</i>
+                        </div>
+                        <p>
+                            <span>累计评价</span>
+                            <span>${goodsDetail.evaluateNum}</span>
+                        </p>
+                    </div>
+                    <div class="priceBottom">
+                        <span>促&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;销</span>
+                        <p>
+                            <span>${goodsDetail.promoteSales.type}</span>
+                            <span>${goodsDetail.promoteSales.content}</span>
+                        </p>
+                    </div>
+                </div>
+                <div class="support">
+                    <span>支&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;持</span>
+                    <p>${goodsDetail.support}</p>
+                </div>
+                <div class="address">
+                    <span>配&nbsp;送&nbsp;至</span>
+                    <p>${goodsDetail.address}</p>
+                </div>`;
+        //4、重新渲染rightTop元素
+        rightTop.innerHTML = s;
+    }
 }
