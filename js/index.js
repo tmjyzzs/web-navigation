@@ -281,4 +281,27 @@ window.onload = function () {
             chooseWrap.appendChild(dlNode);
         }
     }
+    //点击商品参数之后的颜色排他效果
+    clickddBind();
+    function clickddBind() {
+        //1、找第一个dl下的所有的dd元素
+        var dlNodes = document.querySelectorAll('#wrapper #content .contentMain #center .right .rightBottom .chooseWrap dl');
+        console.log("所有的dl标签",dlNodes);
+        var ddNodes = dlNodes[0].querySelectorAll('dd');
+        console.log("所有的dd标签",ddNodes);
+        //2、遍历当前所有的dd元素
+        for(var i = 0;i<ddNodes.length;i++){
+            console.log("for点击的dd标签",ddNodes[i]);
+            ddNodes[i].onclick = function(){
+                // this 表示哪一个元素真实的发生了事件
+                console.log("点击的dd标签",this);
+                console.log("在作用域点击的dd标签",ddNodes[i]);
+                for(var j = 0;j<ddNodes.length;j++){
+                    // 将所有颜色先进行重置
+                    ddNodes[j].style.color = "#666";
+                }
+                this.style.color = "red";
+            }
+        }
+    }
 }
