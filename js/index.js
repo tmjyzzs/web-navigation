@@ -252,4 +252,33 @@ window.onload = function () {
         //4、重新渲染rightTop元素
         rightTop.innerHTML = s;
     }
+
+    // 商品参数数据的动态渲染
+    rightBottomData();
+    function rightBottomData() {
+        //1、查找元素对象
+        var chooseWrap = document.querySelector('#wrapper #content .contentMain #center .right .rightBottom .chooseWrap');
+        //2、查找数据
+        var crumbData = goodData.goodsDetail.crumbData;
+        //3、循环数据
+        for (var i = 0; i < crumbData.length; i++) {
+            //4、创建dl元素对象
+            var dlNode = document.createElement('dl');
+            //5、创建dt元素对象
+            var dtNode = document.createElement('dt');
+            dtNode.innerText = crumbData[i].title;
+            //6、dl追加dt
+            dlNode.appendChild(dtNode);
+            //7、遍历crumbData->data元素
+            for (var j = 0; j < crumbData[i].data.length; j++) {
+                //创建dd元素
+                var ddNode = document.createElement('dd');
+                ddNode.innerText = crumbData[i].data[j].type;
+                //让dl来追加dd
+                dlNode.appendChild(ddNode);
+            }
+            //8、让chooseWrap追加dl
+            chooseWrap.appendChild(dlNode);
+        }
+    }
 }
