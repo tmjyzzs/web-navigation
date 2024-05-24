@@ -286,50 +286,14 @@ window.onload = function () {
     function clickddBind() {
         //1、找第一个dl下的所有的dd元素
         var dlNodes = document.querySelectorAll('#wrapper #content .contentMain #center .right .rightBottom .chooseWrap dl');
-        console.log("所有的dl标签", dlNodes);
-        for (let i = 0; i < dlNodes.length; i++) {
+        var arr = new Array(dlNodes.length);
+        var choose = document.querySelector('#wrapper #content .contentMain #center #right .rightBottom .choose');
+        //数组填充值
+        arr.fill(0);
+        for (var i = 0; i < dlNodes.length; i++) {
             (function (i) {
-                var ddNodes = dlNodes[i].querySelectorAll('dd');
-                //2、遍历当前所有的dd元素
-                for (var j = 0; j < ddNodes.length; j++) {
-                    ddNodes[j].onclick = function () {
-                        // console.log(i);
-                         console.log(ddNodes[i]); // undefined
-                        //this：表示哪一个元素真实的发生了事件
-                        // console.log(this);
-                        for (var k = 0; k < ddNodes.length; k++) {
-                            ddNodes[k].style.color = "#666";
-                        }
-                        /**
-                         * ddNodes[0].style.color = "#666";
-                         * ddNodes[1].style.color = "#666";
-                         * ddNodes[3].style.color = "#666";
-                         */
-
-                        //假设点击的是第二个元素，下标为1'
-                        //ddNodes[1].style.color = "red";
-                        //相同下标的dd元素的字体颜色在进行覆盖操作,而其他未点击的元素都是在进行重新设置颜色
-                        this.style.color = "red";
-                    }
-                }
+                console.log("dd标签",dlNodes[i]);
             })
-
         }
-        // var ddNodes = dlNodes[0].querySelectorAll('dd');
-        // console.log("所有的dd标签", ddNodes);
-        // //2、遍历当前所有的dd元素
-        // for (var i = 0; i < ddNodes.length; i++) {
-        //     console.log("for点击的dd标签", ddNodes[i]);
-        //     ddNodes[i].onclick = function () {
-        //         // this 表示哪一个元素真实的发生了事件
-        //         console.log("点击的dd标签", this);
-        //         console.log("在作用域点击的dd标签", ddNodes[i]);
-        //         for (var j = 0; j < ddNodes.length; j++) {
-        //             // 将所有颜色先进行重置
-        //             ddNodes[j].style.color = "#666";
-        //         }
-        //         this.style.color = "red";
-        //     }
-        // }
     }
 }
