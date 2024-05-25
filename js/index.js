@@ -287,13 +287,56 @@ window.onload = function () {
         //1、找第一个dl下的所有的dd元素
         var dlNodes = document.querySelectorAll('#wrapper #content .contentMain #center .right .rightBottom .chooseWrap dl');
         var arr = new Array(dlNodes.length);
-        var choose = document.querySelector('#wrapper #content .contentMain #center #right .rightBottom .choose');
+        var choose = document.querySelector('#wrapper #content .contentMain #center .right .rightBottom .choose');
+        console.log("加载==", dlNodes);
         //数组填充值
         arr.fill(0);
         for (var i = 0; i < dlNodes.length; i++) {
+            console.log("====");
             (function (i) {
-                console.log("dd标签",dlNodes[i]);
-            })
+                console.log("dd标签", dlNodes[i]);
+                var ddNodes = dlNodes[i].querySelectorAll("dd")
+
+                //2. 遍历当前所有的dd元素
+                for (let j = 0; j < ddNodes.length; j++) {
+                    ddNodes[j].onclick = function () {
+                        console.log("choose元素", choose);
+                        //清空choose元素
+                        choose.innerHTML = "";
+                        for (var k = 0; k < ddNodes.length; k++) {
+                            ddNodes[k].style.color = "#666";
+                        }
+                        // 当前触发的元素设置为红色
+                        this.style.color = "red"
+
+                        // 点击哪一个dd元素动态的产生一个新mark标记
+                        arr[i] = this.innerText;
+                        console.log("innerText=", this.innerText);
+                        console.log("innerHTML=", this.innerHTML);
+                        // 遍历array
+                        arr.forEach(function (value) {
+                            // 只要是真的条件，就动态的来创建mark条件
+                            if (value) {
+                                //创建div元素
+                                var markDiv = document.createElement('div');
+                                //并且设置class属性
+                                markDiv.id = 'mark';
+                                //并且设置值
+                                markDiv.innerText = value;
+                                //创建a元素
+                                var aNode = document.createElement('a');
+                                //并且设置值
+                                aNode.innerText = 'X';
+                                //让div追加a 
+                                markDiv.appendChild(aNode);
+                                //让choose元素追加div
+                                choose.appendChild(markDiv);
+                            }
+                        })
+                    }
+
+                }
+            })(i)
         }
     }
 }
