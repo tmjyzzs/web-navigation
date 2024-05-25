@@ -314,25 +314,46 @@ window.onload = function () {
                         console.log("innerText=", this.innerText);
                         console.log("innerHTML=", this.innerHTML);
                         // 遍历array
-                        arr.forEach(function (value) {
+                        arr.forEach(function (value,index) {
                             // 只要是真的条件，就动态的来创建mark条件
                             if (value) {
                                 //创建div元素
                                 var markDiv = document.createElement('div');
                                 //并且设置class属性
-                                markDiv.id = 'mark';
+                                markDiv.className = 'mark';
                                 //并且设置值
                                 markDiv.innerText = value;
                                 //创建a元素
                                 var aNode = document.createElement('a');
                                 //并且设置值
                                 aNode.innerText = 'X';
+                                //并且设置下标
+                                aNode.setAttribute('index', index);
                                 //让div追加a 
                                 markDiv.appendChild(aNode);
                                 //让choose元素追加div
                                 choose.appendChild(markDiv);
                             }
                         })
+                        //获取所有的a标签元素，并且循环发生点击事件
+                        let aNodes = document.querySelectorAll('#wrapper #content .contentMain #center .right .rightBottom .choose .mark a');
+                        console.log("aNodes", aNodes);
+                        for (var n = 0; n < aNodes.length; n++) {
+                            aNodes[n].onclick = function () {
+                                //获取点击的a标签身上的index属性值
+                                console.log("this指向", this);
+                                var idx = this.getAttribute('index');
+                                console.log("获取下标", idx);
+                                //恢复数组中对应下标元素的值
+                                arr[idx] = 0;
+                                //查找对应下标的那个dl行中的所有的dd元素
+                                var ddlist = dlNodes[idx].querySelectorAll('dd');
+                                //默认的第一个dd文字颜色恢复成红色
+                                ddlist[0].style.color = 'red';
+                                //删除对应下标位置的mark标记
+                                choose.removeChild(this.parentNode);
+                            }
+                        }
                     }
 
                 }
