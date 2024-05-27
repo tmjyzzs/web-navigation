@@ -368,12 +368,13 @@
                 // 下面
                 .rightBottom {
                     margin-top: 10px;
-                    line-height: 28px;  
-                    
+                    line-height: 28px;
+
                     // 选择之后结果的区域开始
-                    .choose{
+                    .choose {
                         .clearfix();
-                        .mark{
+
+                        .mark {
                             height: 30px;
                             background: snow;
                             border: 1px solid #ddd;
@@ -381,7 +382,8 @@
                             text-align: center;
                             line-height: 30px;
                             float: left;
-                            a{
+
+                            a {
                                 color: red;
                                 margin-left: 20px;
                             }
@@ -394,10 +396,12 @@
                             margin-top: 13px;
                             margin-bottom: 13px;
                             .clearfix();
+
                             dt {
                                 margin-right: 15px;
                                 float: left;
                             }
+
                             dd {
                                 float: left;
                                 margin-right: 5px;
@@ -408,11 +412,63 @@
                                 border-left: 1px solid #eee;
                                 border-right: 1px solid #bbb;
                                 border-bottom: 1px solid #bbb;
-                                &:first-of-type{
-                                    color:red;
+
+                                &:first-of-type {
+                                    color: red;
                                 }
                             }
 
+                        }
+                    }
+
+                    // 添加购物车区域开始
+                    .addCart {
+                        .clearfix();
+
+                        .count {
+                            background-color: #2b1616;
+                            width: 55px;
+                            margin-right: 15px;
+                            position: relative;
+                            top: 10px;
+                            float: left;
+
+                            input {
+                                width: 38px;
+                                height: 37px;
+                                border: 1px solid #ddd;
+                            }
+
+                            a {
+                                width: 15px;
+                                height: 18px;
+                                color: #666;
+                                background: #f1f1f1;
+                                position: absolute;
+                                right: 1px;
+                                text-align: center;
+                                line-height: 18px;
+                                border: 1px solid #ddd;
+
+                                &:first-child {
+                                    top: 0px;
+                                }
+
+                                &:last-child {
+                                    top: 20px;
+                                    border-top: none;
+                                }
+                            }
+                        }
+
+                        button {
+                            padding-left: 25px;
+                            padding-right: 25px;
+                            height: 36px;
+                            background: #e1251b;
+                            color: #fff;
+                            border: none;
+                            float: left;
                         }
                     }
 
