@@ -274,6 +274,7 @@ window.onload = function () {
                 //创建dd元素
                 var ddNode = document.createElement('dd');
                 ddNode.innerText = crumbData[i].data[j].type;
+                ddNode.setAttribute('price',crumbData[i].data[j].changePrice);
                 //让dl来追加dd
                 dlNode.appendChild(ddNode);
             }
@@ -310,11 +311,14 @@ window.onload = function () {
                         this.style.color = "red"
 
                         // 点击哪一个dd元素动态的产生一个新mark标记
-                        arr[i] = this.innerText;
+                        arr[i] = this;
+
+                        changePriceBind(arr); //实参
+
                         console.log("innerText=", this.innerText);
                         console.log("innerHTML=", this.innerHTML);
                         // 遍历array
-                        arr.forEach(function (value,index) {
+                        arr.forEach(function (value, index) {
                             // 只要是真的条件，就动态的来创建mark条件
                             if (value) {
                                 //创建div元素
@@ -322,7 +326,7 @@ window.onload = function () {
                                 //并且设置class属性
                                 markDiv.className = 'mark';
                                 //并且设置值
-                                markDiv.innerText = value;
+                                markDiv.innerText = value.innerText;
                                 //创建a元素
                                 var aNode = document.createElement('a');
                                 //并且设置值
@@ -358,6 +362,27 @@ window.onload = function () {
 
                 }
             })(i)
+        }
+
+        // 价格变动的函数声明
+        function changePriceBind(arr) {
+            //1、原价格标签元素
+            var oldPrice = document.querySelector('#wrapper #content .contentMain #center .right .priceWrap .priceTop .price p');
+
+            // 取出默认的价格
+            var price = goodData.goodsDetail.price;
+
+            // 2.遍历arr数组 
+            for(var i = 0 ; i < arr.length;i++){
+                console.log("传入的数据",arr[i]);
+                if (arr[i]) {
+                    // 数据类型的装换
+                    var changePrice = Number(arr[i].getAttribute("price"))
+                    // 最终价格
+                    price += changePrice 
+                }
+            }
+            oldPrice.innerHTML = price
         }
     }
 }
