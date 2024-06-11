@@ -399,4 +399,38 @@
 }
 #wrapper #content .goodsDetailWrap .leftAside .aslideContent {
   padding: 10px;
+  width: 210px;
+}
+#wrapper #content .goodsDetailWrap .leftAside .aslideContent div.active {
+  background: skyblue;
+}
+#wrapper #content .goodsDetailWrap .leftAside .aslideContent div.active ul.goodslist1 li {
+  width: 50%;
+  border-bottom: 1px dashed #ededed;
+  line-height: 28px;
+  float: left;
+}
+#wrapper #content .goodsDetailWrap .leftAside .aslideContent div.active ul.goodslist2 {
+  margin: 5px 0 15px;
+}
+#wrapper #content .goodsDetailWrap .leftAside .aslideContent div.active ul.goodslist2 li {
+  border-bottom: 1px solid #ededed;
+}
+#wrapper #content .goodsDetailWrap .leftAside .aslideContent div.active ul.goodslist2 li img {
+  width: 152px;
+}
+#wrapper #content .goodsDetailWrap .leftAside .aslideContent div.active ul.goodslist2 li p {
+  font-size: 16px;
+  color: #c81623;
+}
+#wrapper #content .goodsDetailWrap .leftAside .aslideContent div.active ul.goodslist2 li .button {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+#wrapper #content .goodsDetailWrap .leftAside .aslideContent div.active ul.goodslist2 li .button a {
+  color: #8c8c8c;
+  padding: 2px 14px;
+  line-height: 18px;
+  border: 1px solid #8c8c8c;
 }
