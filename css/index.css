@@ -450,3 +450,45 @@
   color: #333;
   padding: 5px 0 5px 15px;
 }
+#wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap {
+  background: #333;
+  height: 170px;
+  padding-top: 10px;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap .left {
+  width: 127px;
+  height: 165px;
+  position: relative;
+  float: left;
+  text-align: center;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap .left img {
+  width: 87px;
+  margin: 0 auto;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap .left p {
+  color: #c81623;
+  font-size: 16px;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap .left i {
+  position: absolute;
+  top: 48px;
+  right: -25px;
+  font-size: 16px;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap .middle {
+  width: 668px;
+  height: 165px;
+  float: left;
+  text-align: center;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap .middle li {
+  width: 127px;
+  margin-left: 20px;
+  margin-right: 20px;
+  float: left;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap .middle li img {
+  width: 120px;
+  height: 130px;
+}
