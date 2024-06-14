@@ -435,7 +435,6 @@
   border: 1px solid #8c8c8c;
 }
 #wrapper #content .goodsDetailWrap .rightDetail {
-  background: #4b2222;
   width: 980px;
   float: left;
   margin-left: 8px;
@@ -451,7 +450,6 @@
   padding: 5px 0 5px 15px;
 }
 #wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap {
-  background: #333;
   height: 170px;
   padding-top: 10px;
 }
@@ -491,4 +489,65 @@
 #wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap .middle li img {
   width: 120px;
   height: 130px;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap .right {
+  border-left: 1px solid #503030;
+  float: left;
+  width: 153px;
+  height: 165px;
+  padding-left: 20px;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap .right div {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap .right p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap .right i {
+  color: #b1191a;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .chooseBox .listWrap .right button {
+  padding: 10px 25px;
+  font-size: 16px;
+  color: #fff;
+  background: #e1251b;
+  border: none;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .BottomDetail .tabBtns {
+  background: #661f1f;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .BottomDetail .tabBtns::after {
+  clear: both;
+  display: block;
+  content: '';
+}
+#wrapper #content .goodsDetailWrap .rightDetail .BottomDetail .tabBtns li {
+  border-top: 1px solid #201a1a;
+  border-bottom: 1px solid #741b1b;
+  border-right: 1px solid #ddd;
+  background: #fff;
+  height: 40px;
+  padding-left: 11px;
+  padding-right: 11px;
+  float: left;
+  text-align: center;
+  line-height: 40px;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .BottomDetail .tabBtns li.active {
+  background: red;
+  border-left: 1px solid #ddd;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .BottomDetail .tabBtns li.active a {
+  color: #fff;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .BottomDetail .tabContents div {
+  padding-left: 20px;
+  line-height: 25px;
+  display: none;
+}
+#wrapper #content .goodsDetailWrap .rightDetail .BottomDetail .tabContents div.active {
+  margin: 10px 0;
+  display: block;
 }

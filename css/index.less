@@ -573,7 +573,6 @@
 
             // 右侧结构
             .rightDetail {
-                background: #4b2222;
                 width: 980px;
                 float: left;
                 margin-left: 8px;
@@ -593,7 +592,6 @@
 
                     // 内容
                     .listWrap {
-                        background: #333;
                         height: 170px;
                         padding-top: 10px;
 
@@ -642,15 +640,89 @@
                                 }
 
                                 >span {}
-                                div{
-                                    input{}
-                                    span{}
+
+                                div {
+                                    input {}
+
+                                    span {}
                                 }
 
                             }
                         }
+
                         // 右侧
-                        
+                        .right {
+                            border-left: 1px solid #503030;
+                            float: left;
+                            width: 153px;
+                            height: 165px;
+                            padding-left: 20px;
+
+                            div {
+                                margin-top: 10px;
+                                margin-bottom: 10px;
+                            }
+
+                            p {
+                                font-weight: bold;
+                                margin-bottom: 10px;
+                            }
+
+                            i {
+                                color: #b1191a;
+                            }
+
+                            button {
+                                padding: 10px 25px;
+                                font-size: 16px;
+                                color: #fff;
+                                background: #e1251b;
+                                border: none;
+                            }
+                        }
+
+                    }
+                }
+
+                // 选择卡开始
+                .BottomDetail {
+
+                    //菜单
+                    .tabBtns {
+                        background: #661f1f;
+                        .clearfix();
+
+                        li {
+                            border-top: 1px solid #201a1a;
+                            border-bottom: 1px solid #741b1b;
+                            border-right: 1px solid #ddd;
+                            background: #fff;
+                            height: 40px;
+                            padding-left: 11px;
+                            padding-right: 11px;
+                            float: left;
+                            text-align: center;
+                            line-height: 40px;
+                            &.active{
+                                background: red;
+                                border-left: 1px solid #ddd;
+                                a{
+                                    color: #fff;
+                                }
+                            }
+                        }
+                    }
+                    //内容
+                    .tabContents{
+                        div{
+                            padding-left: 20px;
+                            line-height: 25px;
+                            display: none;
+                            &.active{
+                                margin: 10px 0;
+                                display: block;
+                            }
+                        }
                     }
                 }
             }
