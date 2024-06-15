@@ -128,6 +128,11 @@
 #wrapper #content .contentMain #center {
   margin: 5px 0 15px;
 }
+#wrapper #content .contentMain #center::after {
+  clear: both;
+  display: block;
+  content: '';
+}
 #wrapper #content .contentMain #center #left {
   width: 400px;
   float: left;
@@ -325,7 +330,6 @@
   content: '';
 }
 #wrapper #content .contentMain #center .rightBottom .addCart .count {
-  background-color: #2b1616;
   width: 55px;
   margin-right: 15px;
   position: relative;
@@ -367,14 +371,24 @@
 #wrapper #content .goodsDetailWrap {
   width: 1200px;
   margin: 30px auto 0;
-  background: #2b1616;
+}
+#wrapper #content .goodsDetailWrap::after {
+  clear: both;
+  display: block;
+  content: '';
 }
 #wrapper #content .goodsDetailWrap .leftAside {
-  width: 210px;
+  width: 200px;
   border: 1px solid #ccc;
   height: 1000px;
+  float: left;
 }
 #wrapper #content .goodsDetailWrap .leftAside::after {
+  clear: both;
+  display: block;
+  content: '';
+}
+#wrapper #content .goodsDetailWrap .leftAside .asideTop::after {
   clear: both;
   display: block;
   content: '';
@@ -400,9 +414,6 @@
 #wrapper #content .goodsDetailWrap .leftAside .aslideContent {
   padding: 10px;
   width: 210px;
-}
-#wrapper #content .goodsDetailWrap .leftAside .aslideContent div.active {
-  background: skyblue;
 }
 #wrapper #content .goodsDetailWrap .leftAside .aslideContent div.active ul.goodslist1 li {
   width: 50%;
@@ -514,9 +525,6 @@
   color: #fff;
   background: #e1251b;
   border: none;
-}
-#wrapper #content .goodsDetailWrap .rightDetail .BottomDetail .tabBtns {
-  background: #661f1f;
 }
 #wrapper #content .goodsDetailWrap .rightDetail .BottomDetail .tabBtns::after {
   clear: both;

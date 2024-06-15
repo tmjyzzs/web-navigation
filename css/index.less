@@ -182,7 +182,7 @@
             // 中间区域开始
             #center {
                 margin: 5px 0 15px;
-
+                .clearfix();
                 // 左侧放大镜开始
                 #left {
                     width: 400px;
@@ -426,7 +426,6 @@
                         .clearfix();
 
                         .count {
-                            background-color: #2b1616;
                             width: 55px;
                             margin-right: 15px;
                             position: relative;
@@ -483,17 +482,17 @@
         .goodsDetailWrap {
             width: 1200px;
             margin: 30px auto 0;
-            background: #2b1616;
-
+            .clearfix();
             // 左边的侧边栏
             .leftAside {
-                width: 210px;
+                width: 200px;
                 border: 1px solid #ccc;
                 .clearfix();
                 height: 1000px;
-
+                float: left;
                 // 上边
                 .asideTop {
+                    .clearfix();
                     h4 {
                         width: 105px;
                         height: 40px;
@@ -522,7 +521,6 @@
 
                     div {
                         &.active {
-                            background: skyblue;
 
                             ul {
                                 &.goodslist1 {
@@ -689,7 +687,6 @@
 
                     //菜单
                     .tabBtns {
-                        background: #661f1f;
                         .clearfix();
 
                         li {
@@ -703,22 +700,26 @@
                             float: left;
                             text-align: center;
                             line-height: 40px;
-                            &.active{
+
+                            &.active {
                                 background: red;
                                 border-left: 1px solid #ddd;
-                                a{
+
+                                a {
                                     color: #fff;
                                 }
                             }
                         }
                     }
+
                     //内容
-                    .tabContents{
-                        div{
+                    .tabContents {
+                        div {
                             padding-left: 20px;
                             line-height: 25px;
                             display: none;
-                            &.active{
+
+                            &.active {
                                 margin: 10px 0;
                                 display: block;
                             }
